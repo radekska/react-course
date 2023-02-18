@@ -11,7 +11,7 @@ function AddPhoto(props) {
         // do not refresh page during form submit
         const imageLink = event.target.elements.link.value
         const description = event.target.elements.description.value
-        const post = {id: "4", description: description, imageLink: imageLink}
+        const post = {id: Number(new Date()), description: description, imageLink: imageLink}
         if (imageLink && description) {
             props.onAddPhoto(post)
             console.log(post)
