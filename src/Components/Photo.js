@@ -1,24 +1,31 @@
-import React, {Component} from "react";
-import PropTypes from "prop-types";
+import React from "react";
+import {Link, useNavigate} from "react-router-dom";
 
-class Photo extends Component {
-    render() {
-        const post = this.props.post
-        return <figure className="figure">
-            <img className="photo" src={post.imageLink} alt={post.description}/>
-            <figcaption><p>{post.description}</p></figcaption>
-            <div className="button-container">
-                <button className="remove-button" onClick={() => {
-                    this.props.removePost(this.props.index)
-                }}>Remove
-                </button>
-            </div>
-        </figure>
-    }
+function Photo(props) {
+    let navigate = useNavigate();
+    const post = props.post
+
+
+    return <figure className="figure">
+        <Link to={`/single/${post.id}`}><img className="photo" src={post.imageLink} alt={post.description}/></Link>
+        <figcaption><p>{post.description}</p></figcaption>
+        <div className="button-container">
+            <button onClick={() => {
+                props.removePost(props.index)
+                navigate("/")
+            }}>Remove
+            </button>
+            <Link className="button" to={`/single/${post.id}`}>
+                <div className="comment-count">
+                    <div className="speech-bubble"></div>
+                    {props.comments.filter((comment) => comment.postID === post.id).length}
+                </div>
+            </Link>
+        </div>
+
+    </figure>
+
 }
 
-Photo.propTypes = {
-    post: PropTypes.object.isRequired
-}
 
 export default Photo

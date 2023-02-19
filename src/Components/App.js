@@ -1,17 +1,18 @@
 import {connect} from "react-redux";
 import Main from "./Main";
 import {bindActionCreators} from "redux";
-import {addPost, removePost} from "../redux/actions";
+import {addComment, addPost, removePost} from "../redux/actions";
 
 // defines which data to pass from Redux store to React component
 function mapStateToProps(state) {
     return {
-        posts: state
+        posts: state.posts,
+        comments: state.comments
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({removePost, addPost}, dispatch)
+    return bindActionCreators({removePost, addPost, addComment}, dispatch)
 }
 
 // wrapped Main component connected to a Redux store

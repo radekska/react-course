@@ -9,10 +9,13 @@ class PhotoWall extends Component {
             <Link className="addIcon" to="/AddPhoto"></Link>
             <div className="photoGrid">
                 {this.props.posts.sort((a, b) => b.id - a.id).map((post, index) => <Photo key={index}
-                                                                                          post={post} {...this.props} index={index}/>)}
+                                                                                          post={post} {...this.props}
+                                                                                          index={index}/>)}
             </div>
         </div>
     }
+
+
 }
 
 PhotoWall.propTypes = {

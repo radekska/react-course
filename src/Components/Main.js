@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import Title from "./Title";
-import {Link, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import PhotoWall from "./PhotoWall";
 import AddPhoto from "./AddPhoto";
+import Single from "./Single";
 
 
 class Main extends Component {
@@ -21,7 +22,8 @@ class Main extends Component {
                         <PhotoWall {...this.props}/>
                     </div>
                 }/>
-                <Route path="/AddPhoto" element={<AddPhoto {...this.props}/>}/>
+                <Route path="/addPhoto" element={<AddPhoto {...this.props}/>}/>
+                <Route path="/single/:id" element={<Single {...this.props}/>}/>
             </Routes>
         </div>
     }

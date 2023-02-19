@@ -121,7 +121,7 @@ body {
 }
 
 .addIcon {
-    background: url("../plus.png") center no-repeat;
+    background: url("../sign-intersection-fill.svg") center no-repeat;
     background-size: contain;
     padding: 40px;
     display: table;

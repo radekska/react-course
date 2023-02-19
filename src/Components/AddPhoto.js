@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 function AddPhoto(props) {
     let navigate = useNavigate();
 
-    async function handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
         // do not refresh page during form submit
         const imageLink = event.target.elements.link.value
@@ -13,7 +13,6 @@ function AddPhoto(props) {
         const post = {id: Number(new Date()), description: description, imageLink: imageLink}
         if (imageLink && description) {
             props.addPost(post)
-            console.log(props)
             navigate('/');
         }
     }
