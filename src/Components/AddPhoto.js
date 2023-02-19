@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {useNavigate} from "react-router-dom";
 
 
@@ -13,15 +12,14 @@ function AddPhoto(props) {
         const description = event.target.elements.description.value
         const post = {id: Number(new Date()), description: description, imageLink: imageLink}
         if (imageLink && description) {
-            props.onAddPhoto(post)
-            console.log(post)
+            props.addPost(post)
+            console.log(props)
             navigate('/');
         }
     }
 
     return (
         <div>
-            <h1> Photowall </h1>
             <div>
                 <form onSubmit={handleSubmit} className="form">
                     <input type="text" placeholder="Link" name="link"/>
@@ -32,11 +30,6 @@ function AddPhoto(props) {
         </div>
 
     );
-}
-
-
-AddPhoto.propTypes = {
-    onAddPhoto: PropTypes.func.isRequired
 }
 
 
